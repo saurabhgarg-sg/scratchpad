@@ -1,4 +1,4 @@
-package main
+package texttemplates
 
 import (
 	"fmt"
@@ -88,7 +88,7 @@ func populateNodes(nodeCount int, appPrefix string) []node {
 	return nodes
 }
 
-func main() {
+func generate() {
 	// Create the plan file for simulator execution.
 	planFile, err := os.Create("plan.yaml")
 	common.CheckError("copyPlanFile: Handle to destination plan file", err)
