@@ -1,0 +1,49 @@
+plan:
+   nodes:
+   - ID: apo-001
+     type: processingunit
+     IP: 10.0.1.1
+     processingUnit:
+       name: apo-001
+       type: Docker
+       operationalStatus: Running
+       enforcementStatus: Protected
+       metadata:
+       - "@sys:image=apo-001-image"
+       - "@usr:app=apo-001-app"
+     edges:
+       flows:
+       - to: anyapp
+         report:
+           action: Accept
+           destinationPort: 443
+           protocol: 6
+       - to: blog
+         report:
+           action: Accept
+           destinationPort: 443
+           protocol: 6
+
+   - ID: apo-002
+     type: processingunit
+     IP: 10.1.2.2
+     processingUnit:
+       name: apo-002
+       type: Docker
+       operationalStatus: Running
+       enforcementStatus: Protected
+       metadata:
+       - "@sys:image=apo-002-image"
+       - "@usr:app=apo-002-app"
+     edges:
+       flows:
+       - to: anyapp
+         report:
+           action: Accept
+           destinationPort: 443
+           protocol: 6
+       - to: blog
+         report:
+           action: Accept
+           destinationPort: 443
+           protocol: 6
